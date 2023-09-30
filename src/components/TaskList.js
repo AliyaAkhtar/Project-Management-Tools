@@ -51,31 +51,33 @@ const handleStatusChange = async (taskId, newStatus) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': authtoken, // Include the authentication token
+        'authtoken': authtoken, // Include the authentication token
       },
       body: JSON.stringify({ status: newStatus }),
     });
+
+    console.log('Response:', response); // Log the response for debugging
 
     if (response.ok) {
       const updatedTask = await response.json();
       console.log('Updated Task:', updatedTask);
       // Task status updated successfully, update the UI
-      const updatedTasks = tasks.map((task) => {
-        if (taskId === updatedTask._id) {
-          return updatedTask;
-        }
-        return task;
+      setTasks((prevTasks) => {
+        return prevTasks.map((task) => {
+          if (task._id === updatedTask._id) {
+            return updatedTask;
+          }
+          return task;
+        });
       });
-      setTasks(updatedTasks);
-      return; 
     } else {
       console.error('Failed to update task status:', response.status, response.statusText);
-      return; 
     }
   } catch (error) {
     console.error('Error:', error);
   }
 };
+
 const handleLogout = () => {
   // Clear the user's role from local storage
   localStorage.removeItem('userRole');
@@ -103,8 +105,9 @@ return (
             <p><span>Due Date:</span> {formatApplicationDeadline(task.dueDate)}</p>
             <p><span>Priority:</span> {task.priority}</p>
             <p><span>Status:</span> {task.status}</p>
-            <button onClick={() => handleStatusChange(task._id, 'In Progress')}>Start</button>
-            <button onClick={() => handleStatusChange(task._id, 'Completed')}>Complete</button>
+            <button onClick={() => handleStatusChange(task._id, 'In Progress')} className={`button ${task.status === 'In Progress' ? 'in-progress' : ''}`}> Start </button>
+            <button onClick={() => handleStatusChange(task._id, 'Completed')} className={`button ${task.status === 'Completed' ? 'completed' : ''}`}> Complete </button>
+
           </div>
         ))}
       </div>
