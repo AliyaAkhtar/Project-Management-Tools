@@ -1,0 +1,109 @@
+.project-dashboard {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-heading {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; /* Add this line */
+}
+
+.project-card {
+  flex-basis: calc(50% - 10px); /* Adjust this to control the number of cards per row */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 20px; /* Increase the margin to create space between rows */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 2rem;
+  box-sizing: border-box;
+}
+
+.project-card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.project-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.project-card p span {
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex; /* Use flexbox to align items horizontally */
+  gap: 10px; /* Add some space between the buttons */
+}
+
+.create-project-button {
+  width: 50%;
+    height: 30px;
+    border-radius: 20px;
+    margin-top: 0;
+    margin-left: 31rem;
+    margin-bottom: 20px;
+    background: #fff;
+    color: #0e5577;
+    border: 2px solid #0e5577;
+    font-size: 15px;
+}
+
+.create-project-button a {
+  text-decoration: none;
+  color: #0e5577;
+}
+
+.delete-project-button{
+  width: 35%;
+  height: 30px;
+  border-radius: 20px;
+  background: #fff;
+  color: #0e5577;
+  border: 2px solid #0e5577;
+}
+
+.view-task-button{
+  width: 50%;
+  height: 30px;
+  border-radius: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  background: #fff;
+  color: #0e5577;
+  border: 2px solid #0e5577;
+  font-size: 15px;
+}
+
+.view-task-button a {
+  text-decoration: none;
+  color: #0e5577;
+}
+
+
+.btn-logout{
+  margin-left: 85%;
+  width: 10%;
+  height: 2rem;
+  margin-top: 12px;
+  font-size: 20px;
+  border-radius: 9px;
+  border: none;
+}
+/* Add more styles as needed */
